@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const campsiteRouter = require('./routes/campsiteRouter');
+const promotionRouter = require('./routes/promotionRouter');
+const partnerRouter = require('./routes/partnerRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -13,6 +15,8 @@ app.use(express.json());
 
 //Create an assocation with the parent route and its router class.
 app.use('/campsites', campsiteRouter);
+app.use('/promotions', promotionRouter);
+app.use('/partners', partnerRouter);
 
 //Set up the server object to deliver static files from the public folder.
 app.use(express.static(__dirname + '/public'));
